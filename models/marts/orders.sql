@@ -13,7 +13,7 @@ order_items as (
 ),
 
 order_items_summary as (
-
+    select * from (
     select
         order_id,
 
@@ -36,7 +36,7 @@ order_items_summary as (
     from order_items
     where order_id is not null
     group by 1
-
+    ) where order_items_subtotal > 0
 ),
 
 compute_booleans as (

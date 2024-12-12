@@ -1,6 +1,7 @@
 models:
   - name: customers
     description: Customer overview data mart, offering key details for each unique customer. One row per customer.
+    access: public
     data_tests:
       - dbt_utils.expression_is_true:
           expression: "lifetime_spend_pretax + lifetime_tax_paid = lifetime_spend"
@@ -28,7 +29,7 @@ models:
         description: Options are 'new' or 'returning', indicating if a customer has ordered more than once or has only placed their first order to date.
         data_tests:
           - accepted_values:
-              values: ["new", "returning"]
+              values: ["new!", "returning"]
 
 semantic_models:
   - name: customers

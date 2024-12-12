@@ -45,7 +45,7 @@ joined as (
 
         case
             when customer_orders_summary.is_repeat_buyer then 'returning'
-            else 'new'
+            else 'new!'
         end as customer_type
 
     from customers
